@@ -1,0 +1,78 @@
+Open the TypeScript playground and http://www.typescriptlang.org/Playground and try transpiling the following code samples one by one. If a fun
+
+1. let and class
+
+let foo: string;
+
+class Bar {
+	
+}
+
+console.log('Hello TypeScript');
+
+2. Fat arrow function
+
+let getName = () => 'John Smith';
+console.log(`The name is ` + getName());
+
+3. The this problem
+
+function StockQuoteGeneratorArrow(symbol: string){
+    this.symbol = symbol; 
+    setInterval(() => { 
+        console.log("StockQuoteGeneratorArrow. The price quote for " 
+		          + this.symbol  + " is " + Math.random());
+    }, 1000);
+	
+}
+
+let generator = new StockQuoteGeneratorArrow("IBM");
+
+4. A class with constructor and a private variable
+
+class Person {
+    public firstName: string;
+    public lastName: string;
+    public age: number;
+    private _ssn: string;
+
+    constructor(firstName:string, lastName: string, age: number, ssn: string) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this._ssn = ssn;
+    }
+}
+
+var p = new Person("John", "Smith", 29, "123-90-4567");
+console.log("Last name: " + p.lastName + " SSN: " + p._ssn);
+
+5. A class with auto-generate member variables
+
+class Person {
+
+    constructor(public firstName: string,
+        public lastName: string, public age: number,  private _ssn: string) {
+    }
+}
+
+var p = new Person("John", "Smith", 29, "123-90-4567");
+console.log("Last name: " + p.lastName + " SSN: " + p._ssn);
+
+6. Destructuring:
+
+function getStock(){
+
+    return {
+        symbol: "IBM",
+        price: 100.00, 
+        open: 99.5,
+        volume:100000
+    };
+}
+
+let {symbol, price} = getStock();
+
+console.log(`The price of ${symbol} is ${price}`);
+// outputs: The price of IBM is 100
+
