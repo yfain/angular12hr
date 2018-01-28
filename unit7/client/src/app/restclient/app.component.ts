@@ -8,8 +8,8 @@ import {Component, OnDestroy, OnInit} from "@angular/core";
   selector: 'app-root',
   template: `<h1>All Products</h1>
   <ul>
-    <li *ngFor="let product of products">
-       {{product.title}} {{product.price}}
+    <li *ngFor="let product of products" >
+       {{product.title}} {{product.price | currency: "USD": true}} 
     </li>
   </ul>
   {{error}}  
