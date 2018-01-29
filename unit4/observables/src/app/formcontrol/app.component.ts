@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 
 import { FormControl} from '@angular/forms';
-import 'rxjs/add/operator/debounceTime';
+
+import { debounceTime } from 'rxjs/operators';
+
+
 
 @Component({
   selector: "app-root",
@@ -12,12 +15,13 @@ import 'rxjs/add/operator/debounceTime';
 })
 export class AppComponent {
 
-  searchInput: FormControl = new FormControl('');
+  searchInput = new FormControl('');
 
   constructor(){
 
     this.searchInput.valueChanges
-      .debounceTime(500)
+      .pipe(
+      debounceTime(500))
       .subscribe(stock => this.getStockQuoteFromServer(stock));
   }
 

@@ -1,3 +1,55 @@
+import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
+import {Observable} from "rxjs/Observable";
+import 'rxjs/add/observable/fromEvent';
+/* import 'rxjs/add/operator/debounceTime';  // prior to RxJS 5.5
+import 'rxjs/add/operator/map';              // prior to RxJS 5.5
+*/
+import {debounceTime, map} from 'rxjs/operators';
+
+@Component({
+  selector: "app-root",
+  template: `
+    <h2>Observable events </h2>
+    <input type="text" #stockSymbol placeholder="Enter stock" >
+  `
+})
+export class AppComponent implements AfterViewInit{
+
+  @ViewChild('stockSymbol')
+  myInputField: ElementRef;
+
+  ngAfterViewInit() {
+
+    let keyup$ = Observable.fromEvent(this.myInputField.nativeElement, 'keyup');
+
+    let keyupValue$ = keyup$
+      .pipe(
+         debounceTime(500),
+         map(event => event['target'].value))
+      .subscribe(stock => this.getStockQuoteFromServer(stock));
+  }
+
+    getStockQuoteFromServer(stock: string) {
+
+    console.log(`The price of ${stock} is ${(100*Math.random()).toFixed(4)}`);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 import {Component, ViewChild, ElementRef} from '@angular/core';
 
 import 'rxjs/add/operator/sample';
@@ -13,7 +65,7 @@ import {Observable} from "rxjs/Observable";
   template: `
        <h2>Sharing the same stream from keyup event</h2>
       <input #myinput type="text" placeholder="Start typing" >
-      
+
       <br> Subscribing to each value: {{data1}}
       <p>
       <br> Subscribing to 3-second samples: {{data2}}
@@ -48,3 +100,4 @@ export class AppComponent {
 }
 
 // @HostListener offers an alternatve way to listen to native events without subscribe()
+*/

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/debounceTime';
@@ -13,24 +13,25 @@ import {HttpClient} from "@angular/common/http";
   template: `
     <h2>Observable weather</h2>
     <input type="text" placeholder="Enter city" [formControl]="searchInput">
-    <h3>{{temperature}}</h3>
+    <h3>{{weather}}</h3>
   `
 })
-export class AppComponent {
-  private baseWeatherURL: string= 'http://api.openweathermap.org/data/2.5/weather?q=';
-  private urlSuffix: string = "&units=imperial&appid=ca3f6d6ca3973a518834983d0b318f73";
+export class AppComponent implements OnInit{
+  private baseWeatherURL = 'http://api.openweathermap.org/data/2.5/weather?q=';
+  private urlSuffix = "&units=imperial&appid=ca3f6d6ca3973a518834983d0b318f73";
 
-  searchInput: FormControl = new FormControl();
-  temperature: string;
+  searchInput = new FormControl();
+  weather: string;
 
-  constructor(private http:HttpClient){
+  constructor(private http:HttpClient){ }
 
+  ngOnInit(){
     this.searchInput.valueChanges
       .debounceTime(200)
       .switchMap(city => this.getWeather(city))
       .subscribe(
         res => {
-          this.temperature =
+          this.weather =
             `Current temperature is  ${res['main'].temp}F, ` +
             `humidity: ${res['main'].humidity}%`;
         },
@@ -38,7 +39,7 @@ export class AppComponent {
       );
   }
 
-  getWeather(city: string): Observable<Array<string>> {
+  getWeather(city: string): Observable<any> {
     return this.http.get(this.baseWeatherURL + city + this.urlSuffix)
       .catch( err => {
         if (err.status ===404){
