@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import {SsnValidatorService} from "./ssn-validator.service";
 
 @NgModule({
   declarations: [
@@ -13,7 +12,7 @@ import {SsnValidatorService} from "./ssn-validator.service";
     BrowserModule,
     ReactiveFormsModule
   ],
-  providers: [SsnValidatorService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
