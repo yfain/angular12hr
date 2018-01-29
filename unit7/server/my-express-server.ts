@@ -10,6 +10,5 @@ app.get('/reviews', (req, res) => res.send('Got a request for reviews'));
 const server = app.listen(8000, "localhost", () => {
 
     const {address, port} = server.address();
-
-    console.log('Listening on %s %s', address, port);
+    console.log(`Listening on ${address}:${port}`);
 });

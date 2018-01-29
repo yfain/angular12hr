@@ -1,28 +1,34 @@
-import { HttpClient} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import { Observable} from "rxjs/Observable";
 import {Subscription} from "rxjs/Subscription";
-import {Component, OnDestroy, OnInit} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
+
+interface Product {
+  id: number,
+  title: string,
+  price: number
+}
 
 @Component({
   selector: 'app-root',
   template: `<h1>All Products</h1>
   <ul>
-    <li *ngFor="let product of products" >
-       {{product.title}} {{product.price | currency: "USD": true}} 
+    <li *ngFor="let product of products">
+       {{product.title}}: {{product.price | currency}}
     </li>
   </ul>
   {{error}}  
   `})
-export class AppComponent implements OnInit, OnDestroy{
+export class AppComponent implements OnInit{
 
-  products: any[] = [];
-  theDataSource: Observable<any[]>;
+  products: Product[] = [];
+  theDataSource: Observable<Product[]>;
   productSubscription: Subscription;
-  error:string;
+  error: string;
 
   constructor(private httpClient: HttpClient) {
-    this.theDataSource = this.httpClient.get<any[]>('/api/products');
+    this.theDataSource = this.httpClient.get<Product[]>('/api/products');
   }
 
   ngOnInit(){
@@ -31,12 +37,8 @@ export class AppComponent implements OnInit, OnDestroy{
       data => {
           this.products=data;
       },
-      err =>
-        this.error = `Can't get products. Got ${err.status} from ${err.url}`
+        (err: HttpErrorResponse) =>
+        this.error = `Can't get products. Got ${err.message}`
     );
-  }
-
-  ngOnDestroy(){
-    this.productSubscription.unsubscribe();
   }
 }

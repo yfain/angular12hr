@@ -5,7 +5,59 @@
   },
   "apps": [
     {
-      "name": "rest",
+      "name": "restclient",
+      "root": "src",
+      "outDir": "dist",
+      "assets": [
+        "assets",
+        "data",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main-rest.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "styles.css"
+      ],
+      "scripts": [],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    },
+    {
+      "name": "readfile",
+      "root": "src",
+      "outDir": "dist",
+      "assets": [
+        "assets",
+        "data",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main-readfile.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "styles.css"
+      ],
+      "scripts": [],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    },
+    {
+      "name": "restclientpost",
       "root": "src",
       "outDir": "dist",
       "assets": [
@@ -13,7 +65,7 @@
         "favicon.ico"
       ],
       "index": "index.html",
-      "main": "main-rest.ts",
+      "main": "main-rest-post.ts",
       "polyfills": "polyfills.ts",
       "test": "test.ts",
       "tsconfig": "tsconfig.app.json",
@@ -39,6 +91,57 @@
       ],
       "index": "index.html",
       "main": "main-rest-form.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "styles.css"
+      ],
+      "scripts": [],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    },
+    {
+      "name": "progressevents",
+      "root": "src",
+      "outDir": "dist",
+      "assets": [
+        "assets",
+        "data",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main-progressevents.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "styles.css"
+      ],
+      "scripts": [],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    },
+    {
+      "name": "interceptor",
+      "root": "src",
+      "outDir": "dist",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main-interceptor.ts",
       "polyfills": "polyfills.ts",
       "test": "test.ts",
       "tsconfig": "tsconfig.app.json",
