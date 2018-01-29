@@ -1,4 +1,9 @@
-import {Component} from '@angular/core';
+// This is a long version of a component that illustrates the use
+// of subscribe, unsubscribe, and ngOnDestroy
+// For a shorter version that uses async pipe see eBayComponent
+// With Async pipe you don't need to unsubscribe
+
+import {Component, OnDestroy} from '@angular/core';
 import {StateService} from './state.service';
 import {Subscription} from 'rxjs/Subscription';
 
@@ -10,7 +15,7 @@ import {Subscription} from 'rxjs/Subscription';
                </div>`,
   styles: ['.amz {background: pink}']
 })
-export class AmazonComponent {
+export class AmazonComponent implements OnDestroy{
 
   searchFor: string;
   subscription: Subscription;

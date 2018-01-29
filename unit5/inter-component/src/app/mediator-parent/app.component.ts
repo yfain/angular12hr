@@ -4,15 +4,15 @@ import {IStock} from './istock';
 @Component({
   selector: 'app-root',
   template: `
-    <price-quoter (buy)="priceQuoteHandler($event)"></price-quoter><br>
-    <br/>
-    <order-processor [stock]="stock"></order-processor>
+    <price-quoter (buy)="priceQuoteHandler($event)"></price-quoter>
+    
+    <order-processor [stock]="receivedStock"></order-processor>
   `
 })
 export class AppComponent {
-  stock: IStock;
+  receivedStock: IStock;
 
   priceQuoteHandler(event:IStock) {
-    this.stock = event;
+    this.receivedStock = event;
   }
 }

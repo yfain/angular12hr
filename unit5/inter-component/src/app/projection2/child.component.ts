@@ -10,7 +10,6 @@ import {Component, ViewEncapsulation} from "@angular/core";
       <div>This content is defined in child</div><p>
       <ng-content select=".footer"></ng-content>
     </div>
-  `,
-  encapsulation:ViewEncapsulation.Native
+  `
 })
 export class ChildComponent {}

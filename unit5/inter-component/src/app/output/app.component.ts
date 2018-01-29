@@ -4,16 +4,15 @@ import {IPriceQuote} from "./iprice.quote";
 @Component({
   selector: 'app-root',
   template: `
-   <price-quoter (lastPrice)="priceQuoteHandler($event)"></price-quoter><br>
-    AppComponent received: {{stockSymbol}} {{price | currency:'USD':true}}`
+    AppComponent received: {{priceQuote?.stockSymbol}} 
+                           {{priceQuote?.lastPrice | currency:'USD':true}} 
+   <price-quoter (lastPrice)="priceQuoteHandler($event)"></price-quoter>
+    `
 })
 export class AppComponent {
-
-  stockSymbol: string;
-  price:number;
+  priceQuote : IPriceQuote;
 
   priceQuoteHandler(event:IPriceQuote) {
-    this.stockSymbol = event.stockSymbol;
-    this.price = event.lastPrice;
+    this.priceQuote = event;
   }
 }

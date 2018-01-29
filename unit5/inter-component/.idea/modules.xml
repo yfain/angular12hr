@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/w3.iml" filepath="$PROJECT_DIR$/.idea/w3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/inter-component.iml" filepath="$PROJECT_DIR$/.idea/inter-component.iml" />
     </modules>
   </component>
 </project>

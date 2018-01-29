@@ -3,9 +3,9 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: ` <div class="main">
-              <h2>Top-level component</h2>
+              <h2>App component</h2>
     
-              <search></search>
+              <search></search>  <b><-- Search component</b>
               <p>
               
               <a [routerLink]="['/']">eBay</a>

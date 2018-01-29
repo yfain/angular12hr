@@ -1,21 +1,20 @@
-import {OnChanges, Input, SimpleChange, Component} from "@angular/core";
+import {OnChanges, Input, SimpleChange, Component, ChangeDetectionStrategy} from "@angular/core";
 
 @Component({
   selector: 'child',
   styles: ['.child{background:lightgreen}'],
   template: `
-     <div class="child">
+    <div class="child">
       <h2>Child</h2>
       <div>Greeting: {{greeting}}</div>
       <div>User name: {{user.name}}</div>
-      <div>Message: <input [(ngModel)]="message"></div>
     </div>
   `
+  // , changeDetection: ChangeDetectionStrategy.OnPush  // uncomment and child component's user name won't be updated
 })
 export class ChildComponent implements OnChanges {
   @Input() greeting: string;
   @Input() user: {name: string};
-  message: string = 'Initial message';
 
   ngOnChanges(changes: {[key: string]: SimpleChange}) {
     console.log(JSON.stringify(changes, null, 2));

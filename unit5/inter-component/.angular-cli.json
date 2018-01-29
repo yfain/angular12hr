@@ -55,7 +55,7 @@
       }
     },
     {
-      "name":"mediator1",
+      "name":"mediator-parent",
       "root": "src",
       "outDir": "dist",
       "assets": [
@@ -80,7 +80,7 @@
       }
     },
     {
-      "name":"mediator2",
+      "name":"mediator-service",
       "root": "src",
       "outDir": "dist",
       "assets": [
@@ -105,7 +105,7 @@
       }
     },
     {
-      "name":"projection",
+      "name":"projection1",
       "root": "src",
       "outDir": "dist",
       "assets": [
@@ -113,7 +113,32 @@
         "favicon.ico"
       ],
       "index": "index.html",
-      "main": "main-projection.ts",
+      "main": "main-projection1.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "styles.css"
+      ],
+      "scripts": [],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    },
+    {
+      "name":"projection2",
+      "root": "src",
+      "outDir": "dist",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main-projection2.ts",
       "polyfills": "polyfills.ts",
       "test": "test.ts",
       "tsconfig": "tsconfig.app.json",
