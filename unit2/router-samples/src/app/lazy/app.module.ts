@@ -12,10 +12,11 @@ import {CustomPreloadingStrategy} from "./custom.preloader";
   imports: [ BrowserModule,
     RouterModule.forRoot([
       {path: '',        component: HomeComponent},
+        {path: 'home',        component: HomeComponent},
       {path: 'product', component: ProductDetailComponent},
 
       {path: 'luxury', loadChildren: './luxury.module#LuxuryModule', data: {preloadme:true} } ]
-      , {preloadingStrategy: CustomPreloadingStrategy}
+  //    , {preloadingStrategy: CustomPreloadingStrategy}
       )
   ],
   declarations: [ AppComponent, HomeComponent, ProductDetailComponent],
