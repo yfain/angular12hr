@@ -1,5 +1,5 @@
 # Angular development with TypeScript
-The repository has code samples used in my online workshop
+The repository has code samples used in Yakov Fain's workshops
 
 To run these samples you need to have the current version of Node.js installed (see https://nodejs.org/en/download)
 
